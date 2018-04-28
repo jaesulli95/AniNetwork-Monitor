@@ -16,7 +16,6 @@ class AniNetworkMonitor():
         while True:
             self.tor_info = self.get_torrent_info()
             if len(self.tor_info) == 0:
-                print("Torrent Does Not Exist")
                 break
             if self.tor_info["is_finished"]:
                 self.remove_torrent()
@@ -44,7 +43,3 @@ class AniNetworkMonitor():
         login_data = {"id": 1, "method": DELUGE_LOGIN, "params":["deluge"]}
         self.r = requests.post(URL, data=json.dumps(login_data), headers=HEADERS)
         self.session_cookie = self.r.headers['Set-Cookie'].split(";")[0].split("=")[1]
-
-
-anm = AniNetworkMonitor("262f9701629bad4413362876d3f40d7c9d557ec8")
-anm.run()
