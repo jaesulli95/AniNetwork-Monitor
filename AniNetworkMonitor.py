@@ -27,8 +27,6 @@ class AniNetworkMonitor():
                 pass
         self.r.close()
 
-
-
     """
         Return Json object containing information about the torrent.
     """
